@@ -1,0 +1,8 @@
+BasedOnStyle: llvm
+ColumnLimit: 100
+UseTab: Never
+TabWidth: 2
+PointerAlignment: Left
+DerivePointerAlignment: false
+SpaceBeforeParens: Never
+#ConstStyle: East
