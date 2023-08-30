@@ -19,7 +19,39 @@ This is one example Python application to deserialize Wisent data and performs a
 
 * Swift Benchmark (Benchmarks/Swift)
 
-This is one example Swift application to deserialize Wisent data and performs an aggregation query (same query as in the C++ implementation). 
+This is one example Swift application to deserialize Wisent data and performs an aggregation query (same query as in the C++ implementation).
+
+## Example Wisent File
+
+The 'Example' folder contains the Wisent example file from the paper: 'example.wisent', generated from this JSON document:
+```
+{
+  "Data": {
+    "File" : {
+      "Content": [
+        0.17,
+        91.0,
+        4.20,
+        0.45
+      ],
+    "Name": "Population.csv"
+    }
+  },
+  "Id": 17,
+  "Title": "Population"
+}
+```
+To note: a slight difference from the example in the paper, JSON's `{}` is translated in an `Object` node and JSON's `[]` is translated in a `List` node.
+This is required to support unnamed JSON objects (since the current implementation of Wisent requires a name for each node).
+
+This file can be used as a reference to implement a new deserializer.
+In addition to the four buffers described in the paper, the file starts with an header containing the following data:
+```
+argumentCount (8 bytes): number of elements in the Argument Vector (and the Type Vector), buffer size = argumentCount * 8 bytes
+expressionCount (8 bytes): number of elements in the Structure Vector, buffer size = expressionCount * 3 * 8 bytes
+originalAddress (8 bytes): internal
+stringArgumentsFillIndex (8 bytes): size of the string buffer
+```
 
 ## Requirements
 
