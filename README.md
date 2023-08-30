@@ -81,22 +81,22 @@ This is done through http requests.
 For the following commands, replace for example [dataset] with 'opsd' and [pathname] with '../Data/opsd-weather/'.
 
 * Load [dataset] from [pathname] into Wisent format
-> http://localhost:3000/load&name=[dataset]&path=[pathname]
+> http://localhost:3000/load?name=[dataset]&path=[pathname]
 
 * Load [dataset] from [pathname] into JSON (without embedded CSV data)
-> http://localhost:3000/load&name=[dataset]&path=[pathname]&toJson&loadCSV=0
+> http://localhost:3000/load?name=[dataset]&path=[pathname]&toJson&loadCSV=0
 
 * Load [dataset] from [pathname] into JSON (with embedded CSV data)
-> http://localhost:3000/load&name=[dataset]&path=[pathname]&toJson
+> http://localhost:3000/load?name=[dataset]&path=[pathname]&toJson
 
 * Load [dataset] from [pathname] into BSON (with embedded CSV data)
-> http://localhost:3000/load&name=[dataset]&path=[pathname]&toBson
+> http://localhost:3000/load?name=[dataset]&path=[pathname]&toBson
 
 * Unload [dataset] from the server process
-> http://localhost:3000/unload&name=[dataset]
+> http://localhost:3000/unload?name=[dataset]
 
 * Erase [dataset] from shared memory
-> http://localhost:3000/erase&name=[dataset]
+> http://localhost:3000/erase?name=[dataset]
 
 * Stop the server
 > http://localhost:3000/stop
